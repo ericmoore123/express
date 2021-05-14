@@ -1,0 +1,28 @@
+{
+  "name": "express-reference",
+  "version": "1.0.0",
+  "description": "Express reference",
+  "main": "index.js",
+  "scripts": {
+    "start": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericmoore123/express.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "NPM",
+    "ExpressJS"
+  ],
+  "author": "Eric Moore",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericmoore123/express/issues"
+  },
+  "homepage": "https://github.com/ericmoore123/express#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
