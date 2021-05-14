@@ -23,10 +23,13 @@
   },
   "homepage": "https://github.com/ericmoore123/express#readme",
   "dependencies": {
+    "bootstrap": "^5.0.1",
     "chalk": "^4.1.1",
-    "debug": "^2.6.6",
+    "debug": "^2.6.9",
     "express": "^4.17.1",
+    "jquery": "^3.6.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.7"
-  }
+  },
+  "devDependencies": {}
 }
