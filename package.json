@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/ericmoore123/express#readme",
   "dependencies": {
+    "chalk": "^4.1.1",
     "express": "^4.17.1"
   }
 }

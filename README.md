@@ -19,4 +19,8 @@ What is Stored Within this Reference Project?
 - Structure
 - Third Party APIs 
 
+Project Dependencies:
+- Express
+- Chalk
+- Bootstrap & JQuery
 
