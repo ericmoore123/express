@@ -19,8 +19,10 @@ What is Stored Within this Reference Project?
 - Structure
 - Third Party APIs 
 
-Project Dependencies:
+Project Dependencies/Packages:
 - Express
 - Chalk
+- Morgan
+- Nodemon
 - Bootstrap & JQuery
 
