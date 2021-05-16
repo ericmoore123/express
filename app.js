@@ -15,9 +15,16 @@ app.use("/js", express.static(path.join(__dirname, "node_modules/bootstrap/dist/
 app.use("/js", express.static(path.join(__dirname, "node_modules/jquery/dist")));
 // Finish Loading Static Assets
 
+app.set('views', './src/views');
+app.set('view engine', 'pug'); // When express looks for a package to use, it will look for PugJS
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "/views", "/index.html")); //__dirname = location of current excecutable
+    res.render('index', { title: 'Express Application' }); //I am going to render a view called "index", pass that 'index' file an object
 });
+
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, "/views", "/index.html")); //__dirname = location of current excecutable
+// });
 
 app.listen(PORT, () => {
     console.log(`Running on port:  ${chalk.green(PORT)}`);

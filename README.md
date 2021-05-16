@@ -25,5 +25,9 @@ Express Personal Reference
 - Morgan
 - Nodemon
 - ESLint
+- Pug && EJS
 - Bootstrap & JQuery
+
+#### Random things to remember:
+- Scripts in package.json other than Start and Test require "run"
 
