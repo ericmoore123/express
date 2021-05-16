@@ -6,6 +6,7 @@ const path = require('path');
 const PORT = process.env.PORT || 8000;
 const app = express();
 
+// Loading Static Assets
 app.use(morgan('tiny')); // HTTP request logging middleware for Node 
 app.use(express.static(path.join(__dirname, "/public/"))); // Tells express this is where we are keeping out static files
 
@@ -14,7 +15,6 @@ app.use("/js", express.static(path.join(__dirname, "node_modules/bootstrap/dist/
 app.use("/js", express.static(path.join(__dirname, "node_modules/jquery/dist")));
 
 app.get('/', (req, res) => {
-    // res.send("Hello Express & Node");
     res.sendFile(path.join(__dirname, "/views", "/index.html")); //__dirname = location of current excecutable
 });
 
