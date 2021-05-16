@@ -1,17 +1,17 @@
 # Express and Node Reference Doc
 Express Personal Reference
 
-What is NodeJS?
+### What is NodeJS?
 - Server Side Runtime 
 - Cross Platform Integration
 - JavaScript (awesome)
 - Open Source Project
 
-What is Express?
+### What is Express?
 - NodeJS package for building web servers 
 - Relatively minimalist package
 
-What is Stored Within this Reference Project?
+### What is Stored Within this Reference Project?
 - Express Server Basics + Routing
 - Node Database Connectivity
 - Node Templating Engines
@@ -19,7 +19,7 @@ What is Stored Within this Reference Project?
 - Structure
 - Third Party APIs 
 
-Project Dependencies/Packages:
+### Project Dependencies/Packages:
 - Express
 - Chalk
 - Morgan
