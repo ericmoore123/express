@@ -24,5 +24,6 @@ Project Dependencies/Packages:
 - Chalk
 - Morgan
 - Nodemon
+- ESLint
 - Bootstrap & JQuery
 

@@ -13,6 +13,7 @@ app.use(express.static(path.join(__dirname, "/public/"))); // Tells express this
 app.use("/css", express.static(path.join(__dirname, "node_modules/bootstrap/dist/css")));
 app.use("/js", express.static(path.join(__dirname, "node_modules/bootstrap/dist/js")));
 app.use("/js", express.static(path.join(__dirname, "node_modules/jquery/dist")));
+// Finish Loading Static Assets
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "/views", "/index.html")); //__dirname = location of current excecutable
