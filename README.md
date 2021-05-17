@@ -2,7 +2,7 @@
 Express Personal Reference
 
 ### What is NodeJS?
-- Server Side Runtime 
+- Server Side JavaScript Runtime Environment  
 - Cross Platform Integration
 - JavaScript (awesome)
 - Open Source Project
