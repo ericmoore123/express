@@ -1,5 +1,5 @@
 # Express and Node Reference Doc
-Express Personal Reference
+Express and NodeJS Personal Reference (For public and personal use)
 
 ### What is NodeJS?
 - Server Side JavaScript Runtime Environment  
