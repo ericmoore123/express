@@ -3,7 +3,10 @@ const chalk = require('chalk'); //Enables us to set colors on error/console mess
 const morgan = require('morgan');
 const path = require('path');
 
-const PORT = process.env.PORT || 8000;
+const dotenv = require('dotenv');
+dotenv.config(); //Inititalize dotenv
+
+const PORT = process.env.PORT;
 const app = express();
 
 // Loading Static Assets
@@ -19,7 +22,7 @@ app.set('views', './src/views');
 app.set('view engine', 'pug'); // When express looks for a package to use, it will look for PugJS
 
 app.get('/', (req, res) => {
-    res.render('index', { title: 'Hello, World!', welcome: 'Welcome to my Express and NodeJS project!' }); //I am going to render a view called "index", pass that 'index' file an object
+    res.render('index', { title: 'Hello, World!', welcome: 'Welcome to my Express and NodeJS project landing page. This page uses PugJS for its HTML templating engine.' }); //I am going to render a view called "index", pass that 'index' file an object
 });
 
 // app.get('/', (req, res) => {

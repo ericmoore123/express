@@ -22,6 +22,7 @@ Express Personal Reference
 ### Project Dependencies/Packages:
 - Express
 - Chalk
+- Dotenv
 - Morgan
 - Nodemon
 - ESLint
