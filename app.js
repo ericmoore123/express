@@ -19,7 +19,7 @@ app.set('views', './src/views');
 app.set('view engine', 'pug'); // When express looks for a package to use, it will look for PugJS
 
 app.get('/', (req, res) => {
-    res.render('index', { title: 'Express Application' }); //I am going to render a view called "index", pass that 'index' file an object
+    res.render('index', { title: 'Hello, World!', welcome: 'Welcome to my Express and NodeJS project!' }); //I am going to render a view called "index", pass that 'index' file an object
 });
 
 // app.get('/', (req, res) => {

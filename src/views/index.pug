@@ -1,7 +1,11 @@
 html 
     head 
         title Express App
+        link(rel="stylesheet", href="css/bootstrap.min.css")
+        link(rel="stylesheet", href="css/bootstrap.css")
+        script(src="js/bootstrap.min.js")
+        script(src="js/jquery.min.js")
     body
-        div(class=['container']) 
-            h1(id="MyId")=title
-            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro eum quia ipsa illo ea, cupiditate dolore labore error et aut.
+        div(class=['container', 'pt-2']) 
+            h1(id="display-4", class=['bg-dark', 'text-white'])=title
+            p(class=['col-md-6'])=welcome
