@@ -9,9 +9,11 @@ dotenv.config(); //Inititalize dotenv
 const PORT = process.env.PORT;
 const app = express();
 
-// Loading Static Assets
 app.use(morgan('tiny')); // HTTP request logging middleware for Node 
+
+// Loading Static Assets
 app.use(express.static(path.join(__dirname, "/public/"))); // Tells express this is where we are keeping out static files
+// __dirname returns the path of the folder in which the current js file is stored i.e: `\express\app.js`
 
 app.use("/css", express.static(path.join(__dirname, "node_modules/bootstrap/dist/css")));
 app.use("/js", express.static(path.join(__dirname, "node_modules/bootstrap/dist/js")));
@@ -30,5 +32,5 @@ app.get('/', (req, res) => {
 // });
 
 app.listen(PORT, () => {
-    console.log(`Running on port:  ${chalk.green(PORT)}`);
+    console.log(`Running on port:  ${chalk.red(PORT)}`);
 });
