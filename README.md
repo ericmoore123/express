@@ -26,7 +26,7 @@ Express and NodeJS Personal Reference (For public and personal use)
 - Morgan
 - Nodemon
 - ESLint
-- Pug && EJS
+- Pug & EJS
 - Bootstrap & JQuery
 
 #### Random things to remember:
