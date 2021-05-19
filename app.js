@@ -8,8 +8,9 @@ const router = require('./routes/router')
 
 const dotenv = require('dotenv');
 dotenv.config(); //Inititalize dotenv
-
 const PORT = process.env.PORT || 8000;
+
+// Initialize Express
 const app = express();
 
 app.use(morgan('tiny')); // HTTP request logging middleware for Node 
@@ -26,6 +27,7 @@ app.use("/js", express.static(path.join(__dirname, "node_modules/jquery/dist")))
 app.set('views', './src/views');
 app.set('view engine', 'pug'); // When express looks for a package to use, it will look for PugJS
 
+// Setup main route as '/', and send it to router.js file
 app.use('/', router);
 
 // app.get('/', (req, res) => {
