@@ -21,7 +21,11 @@ Express and NodeJS Personal Reference (For public and personal use)
 
 ### Project Dependencies/Packages:
 - Express
+<<<<<<< HEAD
     -   Router
+=======
+  - Router
+>>>>>>> ebbbbd78a02cc4bf418d6919c41a01d4abd73861
 - Chalk
 - Dotenv
 - Morgan
