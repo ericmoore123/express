@@ -3,6 +3,9 @@ const chalk = require('chalk'); //Enables us to set colors on error/console mess
 const morgan = require('morgan');
 const path = require('path');
 
+//Import Router
+const router = require('./routes/router')
+
 const dotenv = require('dotenv');
 dotenv.config(); //Inititalize dotenv
 
@@ -23,9 +26,11 @@ app.use("/js", express.static(path.join(__dirname, "node_modules/jquery/dist")))
 app.set('views', './src/views');
 app.set('view engine', 'pug'); // When express looks for a package to use, it will look for PugJS
 
-app.get('/', (req, res) => {
-    res.render('index', { title: 'Hello, World!', welcome: 'Welcome to my Express and NodeJS project landing page. This page uses PugJS for its HTML templating engine.' }); //I am going to render a view called "index", pass that 'index' file an object
-});
+app.use('/', router);
+
+// app.get('/', (req, res) => {
+//     res.render('index', { title: 'Hello, World!', welcome: 'Welcome to my Express and NodeJS project landing page. This page uses PugJS for its HTML templating engine.' }); //I am going to render a view called "index", pass that 'index' file an object
+// });
 
 // app.get('/', (req, res) => {
 //     res.sendFile(path.join(__dirname, "/views", "/index.html")); //__dirname = location of current excecutable
