@@ -6,7 +6,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config(); //Inititalize dotenv
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8000;
 const app = express();
 
 app.use(morgan('tiny')); // HTTP request logging middleware for Node 
