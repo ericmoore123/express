@@ -6,8 +6,12 @@ const pageData = {
     'welcomeInfo': 'Welcome to my Express and NodeJS project landing page. This page uses PugJS for its HTML templating engine.'
 };
 
-router.get('/', (req, res) => {
-    res.render('index', { title: pageData.title, welcome: pageData.welcomeInfo }); //I am going to render a view called "index", pass that 'index' file an object
+router.get('/', (req, res) => {  //I am going to render a view called "index", pass that 'index' file an object
+    res.render('index', { 
+        title: pageData.title,
+        welcome: pageData.welcomeInfo,
+        list: ['Item 1', 'Item 2']
+    });
 });
 
 module.exports = router;
