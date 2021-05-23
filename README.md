@@ -31,8 +31,10 @@ Express and NodeJS Personal Reference (For public and personal use)
 - Morgan
 - Nodemon
 - ESLint
-- Pug & EJS
-- Bootstrap & JQuery
+- PugJS
+- EJS
+- Bootstrap4 
+- JQuery
 
 #### Random things to remember:
 - Scripts in package.json other than Start and Test require "run"
