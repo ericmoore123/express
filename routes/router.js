@@ -16,7 +16,7 @@ router.get('/', (req, res) => {  //I am going to render a view called "index", p
 
 router.get('/home', (req, res) => { 
     res.render('home', {
-        title: 'home'
+        title: 'Home Page of Express Application'
     });
 });
 
