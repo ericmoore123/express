@@ -6,6 +6,7 @@ const pageData = {
     'welcomeInfo': 'Welcome to my Express and NodeJS project landing page. This page uses PugJS for its HTML templating engine.'
 };
 
+// /app is the baseline route
 router.get('/', (req, res) => {  //I am going to render a view called "index", pass that 'index' file an object
     res.render('index', { 
         title: pageData.title,
@@ -14,7 +15,7 @@ router.get('/', (req, res) => {  //I am going to render a view called "index", p
     });
 });
 
-router.get('/home', (req, res) => { 
+router.get('/home', (req, res) => {
     res.render('home', {
         title: 'Home Page of Express Application'
     });
