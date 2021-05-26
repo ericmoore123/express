@@ -3,8 +3,12 @@ const chalk = require('chalk'); //Enables us to set colors on error/console mess
 const morgan = require('morgan');
 const path = require('path');
 
-//Import Router
-const router = require('./routes/router')
+//Import Router and navbar
+const nav = [
+    {link: '/books', title: "Books"},
+    {link: '/authors', title: "Authors"}
+];
+const router = require('./routes/router')(nav);
 
 const dotenv = require('dotenv');
 dotenv.config(); //Inititalize dotenv
