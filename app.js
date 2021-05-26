@@ -30,7 +30,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs'); 
 
 // Setup main route as '/', and send it to router.js file
-app.use('/app', router);
+app.use('/books', router);
 
 // app.get('/', (req, res) => {
 //     res.render('index', { title: 'Hello, World!', welcome: 'Welcome to my Express and NodeJS project landing page. This page uses PugJS for its HTML templating engine.' }); //I am going to render a view called "index", pass that 'index' file an object

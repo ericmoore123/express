@@ -2,22 +2,33 @@ const express = require('express');
 const router = express.Router();
 
 const pageData = {
-    'title': 'Express & NodeJS Reference Application',
+    'title': 'Express & NodeJS Reference Application - Library',
     'welcomeInfo': 'Welcome to my Express and NodeJS project landing page. This page uses PugJS for its HTML templating engine.'
 };
 
-// /app is the baseline route
-router.get('/', (req, res) => {  //I am going to render a view called "index", pass that 'index' file an object
-    res.render('index', { 
+const bookList = require('../src/bookList');
+
+// /books is the baseline route
+router.get('/', (req, res) => {
+    res.render('books', {
         title: pageData.title,
-        welcome: pageData.welcomeInfo,
-        list: ['Item 1', 'Item 2']
+        nav: [
+                {link: '/books', title: "Books"},
+                {link: '/authors', title: "Authors"}
+            ],
+        bookList
     });
 });
 
-router.get('/home', (req, res) => {
-    res.render('home', {
-        title: 'Home Page of Express Application'
+router.get('/:id', (req, res) => {
+    const { id } = req.params; //get id from url (destructured)
+    res.render('book', {
+        title: pageData.title,
+        nav: [
+                {link: '/books', title: "Books"},
+                {link: '/authors', title: "Authors"}
+            ],
+        book: bookList[id]
     });
 });
 
