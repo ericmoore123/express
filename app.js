@@ -8,7 +8,7 @@ const nav = [
     {link: '/books', title: "Books"},
     {link: '/authors', title: "Authors"}
 ];
-const router = require('./routes/router')(nav);
+const router = require('./routes/router')(nav); //Pass nav arrary to router function in router.js file
 
 const dotenv = require('dotenv');
 dotenv.config(); //Inititalize dotenv
