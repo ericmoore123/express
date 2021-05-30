@@ -8,7 +8,7 @@ const nav = [
     {link: '/books', title: "Books"},
     {link: '/authors', title: "Authors"}
 ];
-const router = require('./routes/router')(nav); //Pass nav arrary to router function in router.js file
+const router = require('./routes/router');
 
 const dotenv = require('dotenv');
 dotenv.config(); //Inititalize dotenv
@@ -34,15 +34,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs'); 
 
 // Setup main route as '/', and send it to router.js file
-app.use('/books', router);
-
-// app.get('/', (req, res) => {
-//     res.render('index', { title: 'Hello, World!', welcome: 'Welcome to my Express and NodeJS project landing page. This page uses PugJS for its HTML templating engine.' }); //I am going to render a view called "index", pass that 'index' file an object
-// });
-
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, "/views", "/index.html")); //__dirname = location of current excecutable
-// });
+app.use('/books', router(nav)); //pass navbar to router
 
 app.listen(PORT, () => {
     console.log(`Running on port:  ${chalk.red(PORT)}`);

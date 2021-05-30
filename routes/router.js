@@ -28,7 +28,7 @@ const bookRouter = (nav) => {
     });
     
     return router;
-}
+};
 
 
 module.exports = bookRouter;
