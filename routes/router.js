@@ -17,10 +17,11 @@ const bookRouter = (nav) => {
         request.query('select * from books')
             .then((result) => {
                 console.log(result);
+
                 res.render('books', {
                     title: pageData.title,
                     nav,
-                    bookList
+                    bookList: result.recordset
                 });
             })
     });
