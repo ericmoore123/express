@@ -3,16 +3,30 @@ const chalk = require('chalk'); //Enables us to set colors on error/console mess
 const morgan = require('morgan');
 const path = require('path');
 
+const dotenv = require('dotenv');
+dotenv.config(); //Inititalize dotenv
+const PORT = process.env.PORT || 8000;
+
+// SQL Database dependencies
+const mssql = require('mssql');
+const config = {
+    user: 'ericmoore123', 
+    password: 'password_1',
+    server: 'ps-library.database.windows.net',
+    database: 'PSLibrary',
+
+    options: {
+        encrypt: true 
+    }
+};
+mssql.connect(config).catch(err => console.error(err));
+
 //Import Router and navbar
 const nav = [
     {link: '/books', title: "Books"},
     {link: '/authors', title: "Authors"}
 ];
 const router = require('./routes/router');
-
-const dotenv = require('dotenv');
-dotenv.config(); //Inititalize dotenv
-const PORT = process.env.PORT || 8000;
 
 // Initialize Express
 const app = express();

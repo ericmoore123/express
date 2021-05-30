@@ -20,6 +20,8 @@ Express and NodeJS Personal Reference (For public and personal use)
 - Third Party APIs 
 
 ### Project Dependencies/Packages:
+- Node
+- MSSQL
 - Express
     - Router
 - Chalk

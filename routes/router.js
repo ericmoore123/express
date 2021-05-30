@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mssql = require('mssql');
 
 const pageData = {
     'title': 'Express & NodeJS Reference Application - Library',
@@ -11,11 +12,17 @@ const bookRouter = (nav) => {
 
     // /books is the baseline route
     router.get('/', (req, res) => {
-        res.render('books', {
-            title: pageData.title,
-            nav,
-            bookList
-        });
+
+        const request = new mssql.Request();
+        request.query('select * from books')
+            .then((result) => {
+                console.log(result);
+                res.render('books', {
+                    title: pageData.title,
+                    nav,
+                    bookList
+                });
+            })
     });
 
     router.get('/:id', (req, res) => {
