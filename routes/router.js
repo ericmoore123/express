@@ -8,7 +8,7 @@ const pageData = {
 };
 
 const bookRouter = (nav) => {
-    // const bookList = require('../src/bookList');
+    // const bookList = require('../src/bookList'); //STATIC CONTENT
 
     // /books IS THE BASELINE ROUTE
     router.get('/', (req, res) => { 
