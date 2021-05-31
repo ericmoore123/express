@@ -19,7 +19,9 @@ const config = {
         encrypt: true 
     }
 };
+mssql.on('error', err => console.error(err));
 mssql.connect(config).catch(err => console.error(err));
+
 
 //Import Router and navbar
 const nav = [
