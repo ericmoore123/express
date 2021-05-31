@@ -8,31 +8,35 @@ const pageData = {
 };
 
 const bookRouter = (nav) => {
-    const bookList = require('../src/bookList');
+    // const bookList = require('../src/bookList');
 
-    // /books is the baseline route
-    router.get('/', (req, res) => {
-
+    // /books IS THE BASELINE ROUTE
+    router.get('/', (req, res) => { 
         const request = new mssql.Request();
         request.query('select * from books')
             .then((result) => {
-                console.log(result);
-
+                // console.log(result);
                 res.render('books', {
                     title: pageData.title,
                     nav,
                     bookList: result.recordset
                 });
-            })
+            });
     });
 
     router.get('/:id', (req, res) => {
         const { id } = req.params; //get id from url (destructured)
-        res.render('book', {
-            title: pageData.title,
-            nav,
-            book: bookList[id]
-        });
+
+        const request = new mssql.Request();
+        request.query(`select * from books where id = ${id}`)
+            .then((result) => {
+                console.log(result.recordset);
+                res.render('books', {
+                    title: pageData.title,
+                    nav,
+                    bookList: result.recordset
+                });
+            });
     });
     
     return router;
