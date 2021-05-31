@@ -7,6 +7,11 @@ const dotenv = require('dotenv');
 dotenv.config(); //Inititalize dotenv
 const PORT = process.env.PORT || 8000;
 
+const nav = [
+    {link: '/books', title: "Books"},
+    {link: '/authors', title: "Authors"}
+];
+
 // SQL Database dependencies
 const mssql = require('mssql');
 const config = {
@@ -19,15 +24,14 @@ const config = {
         encrypt: true 
     }
 };
-mssql.on('error', err => console.error(err));
 mssql.connect(config).catch(err => console.error(err));
 
 
 //Import Router and navbar
-const nav = [
-    {link: '/books', title: "Books"},
-    {link: '/authors', title: "Authors"}
-];
+// const nav = [
+//     {link: '/books', title: "Books"},
+//     {link: '/authors', title: "Authors"}
+// ];
 const router = require('./routes/router');
 
 // Initialize Express
