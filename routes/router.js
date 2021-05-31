@@ -4,7 +4,6 @@ const mssql = require('mssql');
 
 const pageData = {
     'title': 'Express & NodeJS Reference Application - Library',
-    'welcomeInfo': 'Welcome to my Express and NodeJS project landing page. This page uses PugJS for its HTML templating engine.'
 };
 
 const bookRouter = (nav) => {
