@@ -10,7 +10,7 @@ const authorRouter = (nav) => {
 
     router.get('/', (req, res) => { 
         const request = new mssql.Request();
-        request.query('select * from books')
+        request.query('select * from books where title=author')
         .then((result) => {
             res.render('authors', {
                 nav,
