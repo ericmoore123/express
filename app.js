@@ -26,12 +26,6 @@ const config = {
 };
 mssql.connect(config).catch(err => console.error(err));
 
-
-//Import Router and navbar
-// const nav = [
-//     {link: '/books', title: "Books"},
-//     {link: '/authors', title: "Authors"}
-// ];
 const router = require('./routes/router');
 
 // Initialize Express
