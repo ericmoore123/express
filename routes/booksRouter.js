@@ -18,7 +18,7 @@ const bookRouter = (nav) => {
                 res.render('books', {
                     title: pageData.title,
                     nav,
-                    bookList: result.recordset
+                    books: result.recordset
                 });
             });
     });
@@ -33,7 +33,7 @@ const bookRouter = (nav) => {
                 res.render('books', {
                     title: pageData.title,
                     nav,
-                    bookList: result.recordset
+                    books: result.recordset
                 });
             });
     });
