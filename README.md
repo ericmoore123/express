@@ -1,5 +1,5 @@
 # Express and Node Reference Doc
-Express and NodeJS Personal Reference (For public and personal use)
+Express and NodeJS Reference Library Project
 
 ### What is NodeJS?
 - Server Side JavaScript Runtime Environment  
