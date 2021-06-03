@@ -27,7 +27,7 @@ const authorRouter = (nav) => {
         request.query(`select * from books where id = ${id}`)
             .then((result) => {
                 console.log(result.recordset);
-                res.render('books', {
+                res.render('author', {
                     title: pageData.title,
                     nav,
                     authors: result.recordset
