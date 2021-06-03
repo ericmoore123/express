@@ -15,17 +15,24 @@ const authorRouter = (nav) => {
             res.render('authors', {
                 nav,
                 title: pageData.title,
-                authors: 'Hello'
+                authors: result.recordset
             });
         });
     });
 
     router.get('/:id', (req, res) => {
-        res.render('author', {
-            nav,
-            title: pageData.title,
-            authors: ['Hello']
-        });
+        const { id } = req.params; //get id from url (destructured)
+
+        const request = new mssql.Request();
+        request.query(`select * from books where id = ${id}`)
+            .then((result) => {
+                console.log(result.recordset);
+                res.render('books', {
+                    title: pageData.title,
+                    nav,
+                    authors: result.recordset
+                });
+            });
     });
 
     return router;
