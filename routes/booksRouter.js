@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mssql = require('mssql');
 
-const pageData = {
-    'title': 'Express & NodeJS Reference Application - Library',
-};
+const pageData = require('../public/data/staticData');
 
 const bookRouter = (nav) => {
     // const bookList = require('../src/bookList'); //STATIC CONTENT
@@ -14,7 +12,7 @@ const bookRouter = (nav) => {
         const request = new mssql.Request();
         request.query('select * from books')
             .then((result) => {
-                // console.log(result);
+                console.log(result);
                 res.render('books', {
                     title: pageData.title,
                     nav,

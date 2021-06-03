@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mssql = require('mssql');
 
-const pageData = {
-    'title': 'Express & NodeJS Reference Application - Library',
-};
+const pageData = require('../public/data/staticData');
 
 const authorRouter = (nav) => {
 
