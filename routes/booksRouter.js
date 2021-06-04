@@ -12,7 +12,7 @@ const bookRouter = (nav) => {
         const request = new mssql.Request();
         request.query('select * from books')
             .then((result) => {
-                console.log(result);
+                // console.log(result);
                 res.render('books', {
                     title: pageData.title,
                     nav,
@@ -27,7 +27,7 @@ const bookRouter = (nav) => {
         const request = new mssql.Request();
         request.query(`select * from books where id = ${id}`)
             .then((result) => {
-                console.log(result.recordset);
+                // console.log(result.recordset);
                 res.render('books', {
                     title: pageData.title,
                     nav,
