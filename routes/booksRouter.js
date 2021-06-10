@@ -9,8 +9,7 @@ const bookRouter = (nav) => {
 
     // /books IS THE BASELINE ROUTE
     router.get('/', async (req, res) => { 
-
-            const request = new mssql.Request();
+        const request = new mssql.Request();
             const result = await request.query('select * from books')
              // console.log(result);
              res.render('books', {
