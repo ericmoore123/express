@@ -9,16 +9,17 @@ const bookRouter = (nav) => {
 
     // /books IS THE BASELINE ROUTE
     router.get('/', (req, res) => { 
-        const request = new mssql.Request();
-        request.query('select * from books')
-            .then((result) => {
-                // console.log(result);
-                res.render('books', {
-                    title: pageData.title,
-                    nav,
-                    books: result.recordset
-                });
+
+        (async function query(){
+            const request = new mssql.Request();
+            const result = await request.query('select * from books')
+             // console.log(result);
+             res.render('books', {
+                title: pageData.title,
+                nav,
+                books: result.recordset
             });
+        });
     });
 
     router.get('/:id', (req, res) => {
