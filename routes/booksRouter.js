@@ -8,9 +8,8 @@ const bookRouter = (nav) => {
     // const bookList = require('../src/bookList'); //STATIC CONTENT
 
     // /books IS THE BASELINE ROUTE
-    router.get('/', (req, res) => { 
+    router.get('/', async (req, res) => { 
 
-        (async function query(){
             const request = new mssql.Request();
             const result = await request.query('select * from books')
              // console.log(result);
@@ -19,7 +18,6 @@ const bookRouter = (nav) => {
                 nav,
                 books: result.recordset
             });
-        });
     });
 
     router.get('/:id', (req, res) => {
