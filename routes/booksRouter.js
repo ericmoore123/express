@@ -24,7 +24,6 @@ const bookRouter = (nav) => {
 
         const request = new mssql.Request();
             const result = await request.query(`select * from books where id = ${id}`)
-                
             // console.log(resul t.recordset);
             res.render('books', {
                 title: pageData.title,
