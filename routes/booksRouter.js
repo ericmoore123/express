@@ -19,18 +19,17 @@ const bookRouter = (nav) => {
             });
     });
 
-    router.get('/:id', (req, res) => {
+    router.get('/:id', async (req, res) => {
         const { id } = req.params; //get id from url (destructured)
 
         const request = new mssql.Request();
-        request.query(`select * from books where id = ${id}`)
-            .then((result) => {
-                // console.log(result.recordset);
-                res.render('books', {
-                    title: pageData.title,
-                    nav,
-                    books: result.recordset
-                });
+            const result = await request.query(`select * from books where id = ${id}`)
+                
+            // console.log(result.recordset);
+            res.render('books', {
+                title: pageData.title,
+                nav,
+                books: result.recordset
             });
     });
     
