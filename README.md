@@ -8,7 +8,7 @@ Express and NodeJS Reference Library Project
 - Open Source Project
 
 ### What is Express?
-- NodeJS package for building web servers 
+- NodeJS package for building web servers and routing web applications 
 - Relatively minimalist package
 
 ### What is Stored Within this Reference Project?
