@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const path = require('path');
 
 const dotenv = require('dotenv');
-dotenv.config(); //Inititalize dotenv
+dotenv.config(); //Inititalize dotenv and enable environment variable usage
 const PORT = process.env.PORT || 8000;
 
 // Define site wide "Nav" component objects
@@ -17,7 +17,7 @@ const nav = [
 const mssql = require('mssql');
 const config = {
     user: 'ericmoore123', 
-    password: 'password_1',
+    password: process.env.PASSWORD,
     server: 'ps-library.database.windows.net',
     database: 'PSLibrary',
 
