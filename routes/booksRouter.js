@@ -6,10 +6,11 @@ const pageData = require('../public/data/staticData');
 
 const bookRouter = (nav) => {
     // const bookList = require('../src/bookList'); //STATIC CONTENT
+    const request = new mssql.Request();
 
     // /books IS THE BASELINE ROUTE
     router.get('/', async (req, res) => { 
-        const request = new mssql.Request();
+
             const result = await request.query('select * from books')
              // console.log(result);
              res.render('books', {
@@ -22,9 +23,8 @@ const bookRouter = (nav) => {
     router.get('/:id', async (req, res) => {
         const { id } = req.params; //get id from url (destructured)
 
-        const request = new mssql.Request();
             const result = await request.query(`select * from books where id = ${id}`)
-            // console.log(resul t.recordset);
+            // console.log(result.recordset);
             res.render('books', {
                 title: pageData.title,
                 nav,
