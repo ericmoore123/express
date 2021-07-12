@@ -5,35 +5,30 @@ const mssql = require('mssql');
 const pageData = require('../public/data/staticData');
 
 const authorRouter = (nav) => {
+    const request = new mssql.Request();
 
-    router.get('/', (req, res) => { 
-        const request = new mssql.Request();
-        request.query('select * from books where title=author')
-        .then((result) => {
-            res.render('authors', {
-                nav,
-                title: pageData.title,
-                authors: result.recordset
-            });
+    router.get('/', async (req, res) => { 
+        const result = await request.query('select * from books where title=author');
+        res.render('authors', {
+            nav,
+            title: pageData.title,
+            authors: result.recordset
         });
     });
 
-    router.get('/:id', (req, res) => {
+    router.get('/:id', async (req, res) => {
         const { id } = req.params; //get id from url (destructured)
 
-        const request = new mssql.Request();
-        request.query(`select * from books where id = ${id}`)
-            .then((result) => {
-                console.log(result.recordset);
-                res.render('author', {
-                    title: pageData.title,
-                    nav,
-                    authors: result.recordset
-                });
-            });
+        const result = await request.query(`select * from books where id = ${id}`)
+        // console.log(result.recordset);
+        res.render('author', {
+            title: pageData.title,
+            nav,
+            authors: result.recordset
+        });
     });
 
     return router;
-}
+};
 
 module.exports = authorRouter;
