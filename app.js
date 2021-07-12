@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 dotenv.config(); //Inititalize dotenv
 const PORT = process.env.PORT || 8000;
 
+// Define site wide "Nav" component objects
 const nav = [
     {link: '/books', title: "Books"},
     {link: '/authors', title: "Authors"}
