@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const pageData = require('../public/data/staticData');
-
-const homeRouter = (nav) => {
+const homeRouter = (nav, pageData) => {
 
     router.get('/', async (req, res) => { 
         res.render('home', {

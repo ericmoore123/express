@@ -7,6 +7,9 @@ const dotenv = require('dotenv');
 dotenv.config(); //Inititalize dotenv and enable environment variable usage
 const PORT = process.env.PORT || 8000;
 
+// Load in static data
+const pageData = require('./public/data/staticData');
+
 // Define site wide "Nav" component objects
 const nav = [
     {link: '/home', title: 'Home'},
@@ -52,9 +55,9 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs'); 
 
 // Setup main route as '/', and send it to router.js file
-app.use('/home', homeRouter(nav));
-app.use('/books', bookRouter(nav)); //pass navbar to router
-app.use('/authors', authorRouter(nav)); //pass navbar to router
+app.use('/home', homeRouter(nav, pageData));
+app.use('/books', bookRouter(nav, pageData)); //pass navbar to router
+app.use('/authors', authorRouter(nav, pageData)); //pass navbar to router
 
 app.listen(PORT, () => {
     console.log(`Running on port:  ${chalk.red(PORT)}`);
