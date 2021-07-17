@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mssql = require('mssql');
 
-const pageData = require('../public/data/staticData');
-
-const authorRouter = (nav) => {
+const authorRouter = (nav, pageData) => {
     const request = new mssql.Request();
 
     router.get('/', async (req, res) => { 
