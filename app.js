@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 8000;
 
 // Define site wide "Nav" component objects
 const nav = [
+    {link: '/home', title: 'Home'},
     {link: '/books', title: "Books"},
     {link: '/authors', title: "Authors"}
 ];
@@ -29,6 +30,7 @@ mssql.connect(config).catch(err => console.error(err));
 
 const bookRouter = require('./routes/booksRouter'); //Include Booksrouter.js file
 const authorRouter = require('./routes/authorsRouter'); //Include Authorsrouter.js file
+const homeRouter = require('./routes/homeRouter'); //Include HomeRouter.js file
 
 // Initialize Express
 const app = express();
@@ -50,6 +52,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs'); 
 
 // Setup main route as '/', and send it to router.js file
+app.use('/home', homeRouter(nav));
 app.use('/books', bookRouter(nav)); //pass navbar to router
 app.use('/authors', authorRouter(nav)); //pass navbar to router
 
