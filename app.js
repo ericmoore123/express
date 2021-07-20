@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 8000;
 // Load in static data
 const pageData = require('./public/data/staticData');
 
+
 // Define site wide "Nav" component objects
 const nav = [
     {link: '/home', title: 'Home'},
