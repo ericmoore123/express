@@ -35,6 +35,7 @@ const bookRouter = (nav, pageData) => {
     // Search route
     router.post('/search', async (req, res) => {
         const {searchData} = req.body;
+        // GET items where the books title contains search input
         const result = await request.query(`select * from books where title like ('%${searchData}%') `);
         
         res.render('books', {
