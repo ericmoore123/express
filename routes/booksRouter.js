@@ -7,7 +7,7 @@ const bookRouter = (nav, pageData) => {
     // const bookList = require('../src/bookList'); //STATIC CONTENT
     const request = new mssql.Request();
 
-    // /books IS THE BASELINE ROUTE
+    // Baseline /book route
     router.get('/', async (req, res) => { 
 
             const result = await request.query('select * from books')
@@ -19,6 +19,7 @@ const bookRouter = (nav, pageData) => {
             });
     });
 
+    // Individual Link click route
     router.get('/:id', async (req, res) => {
         const { id } = req.params; //get id from url (destructured)
 
@@ -31,11 +32,18 @@ const bookRouter = (nav, pageData) => {
             });
     });
 
-    router.post('/search', (req, res) => {
-        const searchData = req.body.searchData;
-        // console.log(searchData);
+    // Search route
+    router.post('/search', async (req, res) => {
+        const {searchData} = req.body;
+        // GET items where the books title contains search input
+        const result = await request.query(`select * from books where title like ('%${searchData}%') `);
+        
+        res.render('books', {
+            title: pageData.title,
+            nav,
+            books: result.recordset
+        });
 
-        res.send(searchData);
     });
     
     return router;
