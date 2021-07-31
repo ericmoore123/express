@@ -30,6 +30,13 @@ const bookRouter = (nav, pageData) => {
                 books: result.recordset
             });
     });
+
+    router.post('/search', (req, res) => {
+        const searchData = req.body.searchData;
+        // console.log(searchData);
+
+        res.send(searchData);
+    });
     
     return router;
 };

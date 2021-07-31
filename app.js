@@ -10,7 +10,6 @@ const PORT = process.env.PORT || 8000;
 // Load in static data
 const pageData = require('./public/data/staticData');
 
-
 // Define site wide "Nav" component objects
 const nav = [
     {link: '/home', title: 'Home'},
@@ -40,6 +39,9 @@ const homeRouter = require('./routes/homeRouter'); //Include HomeRouter.js file
 
 // Initialize Express
 const app = express();
+app.use(express.urlencoded({
+    extended: true
+}));
 
 app.use(morgan('tiny')); // HTTP request logging middleware for Node 
 
@@ -56,6 +58,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs'); 
 
 // Setup main route as '/', and send it to router.js file
+app.use(express.json());
 app.use('/admin', adminRouter(nav));
 
 app.use('/home', homeRouter(nav, pageData));
