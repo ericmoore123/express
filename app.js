@@ -26,7 +26,8 @@ const config = {
     database: 'PSLibrary',
 
     options: {
-        encrypt: true 
+        encrypt: true,
+        trustServerCertificate: true // change to true for local dev / self-signed certs
     }
 };
 mssql.connect(config).catch(err => console.error(err));
