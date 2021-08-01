@@ -5,7 +5,6 @@ const mssql = require('mssql');
 
 const bookRouter = (nav, pageData) => {
     // const bookList = require('../src/bookList'); //STATIC CONTENT
-    const request = new mssql.Request();
 
     // Renderer object template
     const renderer = (result) =>{ 
@@ -16,10 +15,12 @@ const bookRouter = (nav, pageData) => {
         };  
     };
 
+    const request = new mssql.Request();
+    
     // Baseline /book route
     router.get('/', async (req, res) => { 
 
-            const result = await request.query('select * from books')
+            const result = await request.query('select * from books');
              // console.log(result);
              res.render('books', renderer(result));
     });
@@ -28,7 +29,7 @@ const bookRouter = (nav, pageData) => {
     router.get('/:id', async (req, res) => {
         const { id } = req.params; //get id from url (destructured)
 
-            const result = await request.query(`select * from books where id = ${id}`)
+            const result = await request.query(`select * from books where id = ${id}`);
             // console.log(result.recordset);
             res.render('books', renderer(result));
     });
