@@ -3,15 +3,22 @@ const router = express.Router();
 const mssql = require('mssql');
 
 const authorRouter = (nav, pageData) => {
+    
+    // Renderer object template
+    const renderer = (result) =>{ 
+        return {
+            title: pageData.title,
+            nav,
+            books: result.recordset
+        };  
+    };
+
+    // Request file object reference
     const request = new mssql.Request();
 
     router.get('/', async (req, res) => { 
         const result = await request.query('select * from books where title=author');
-        res.render('authors', {
-            nav,
-            title: pageData.title,
-            authors: result.recordset
-        });
+        res.render('authors', renderer(result));
     });
 
     router.get('/:id', async (req, res) => {
@@ -19,11 +26,7 @@ const authorRouter = (nav, pageData) => {
 
         const result = await request.query(`select * from books where id = ${id}`)
         // console.log(result.recordset);
-        res.render('author', {
-            title: pageData.title,
-            nav,
-            authors: result.recordset
-        });
+        res.render('author', renderer(result));
     });
 
     return router;

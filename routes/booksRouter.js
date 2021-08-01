@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const mssql = require('mssql');
 
-
 const bookRouter = (nav, pageData) => {
     // const bookList = require('../src/bookList'); //STATIC CONTENT
 
