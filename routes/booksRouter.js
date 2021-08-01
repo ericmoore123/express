@@ -15,6 +15,7 @@ const bookRouter = (nav, pageData) => {
         };  
     };
 
+    // Request file object reference
     const request = new mssql.Request();
     
     // Baseline /book route

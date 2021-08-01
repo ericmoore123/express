@@ -32,7 +32,7 @@ const config = {
 };
 mssql.connect(config).catch(err => console.error(err));
 
-const adminRouter = require('./routes/adminRouter'); //Include Booksrouter.js file
+// const adminRouter = require('./routes/adminRouter'); //Include Booksrouter.js file
 
 const bookRouter = require('./routes/booksRouter'); //Include Booksrouter.js file
 const authorRouter = require('./routes/authorsRouter'); //Include Authorsrouter.js file
@@ -60,7 +60,7 @@ app.set('view engine', 'ejs');
 
 // Setup main route as '/', and send it to router.js file
 app.use(express.json());
-app.use('/admin', adminRouter(nav));
+// app.use('/admin', adminRouter(nav));
 
 app.use('/home', homeRouter(nav, pageData));
 app.use('/books', bookRouter(nav, pageData)); //pass navbar to router
