@@ -7,16 +7,21 @@ const bookRouter = (nav, pageData) => {
     // const bookList = require('../src/bookList'); //STATIC CONTENT
     const request = new mssql.Request();
 
+    // Renderer object template
+    const renderer = (result) =>{ 
+        return {
+            title: pageData.title,
+            nav,
+            books: result.recordset
+        };  
+    };
+
     // Baseline /book route
     router.get('/', async (req, res) => { 
 
             const result = await request.query('select * from books')
              // console.log(result);
-             res.render('books', {
-                title: pageData.title,
-                nav,
-                books: result.recordset
-            });
+             res.render('books', renderer(result));
     });
 
     // Individual Link click route
@@ -25,11 +30,7 @@ const bookRouter = (nav, pageData) => {
 
             const result = await request.query(`select * from books where id = ${id}`)
             // console.log(result.recordset);
-            res.render('books', {
-                title: pageData.title,
-                nav,
-                books: result.recordset
-            });
+            res.render('books', renderer(result));
     });
 
     // Search route
@@ -39,19 +40,14 @@ const bookRouter = (nav, pageData) => {
         try{
             // GET items where the books title contains search input
             const result = await request.query(`select * from books where title like ('%${searchData}%')`);
-            res.render('books', {
-                title: pageData.title,
-                nav,
-                books: result.recordset
-            });
+            res.render('books', renderer(result));
+
         }catch(err){
             console.error(err);
         }
-
     });
     
     return router;
 };
-
 
 module.exports = bookRouter;
