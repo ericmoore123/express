@@ -5,7 +5,7 @@ const mssql = require('mssql');
 const bookRouter = (nav, pageData) => {
     // const bookList = require('../src/bookList'); //STATIC CONTENT
 
-    // Renderer object template
+    // Renderer function to return page data object 
     const renderer = (result) =>{ 
         return {
             title: pageData.title,
@@ -43,6 +43,7 @@ const bookRouter = (nav, pageData) => {
             const result = await request.query(`select * from books where title like ('%${searchData}%')`);
             res.render('books', renderer(result));
 
+            // log any error found
         }catch(err){
             console.error(err);
         }

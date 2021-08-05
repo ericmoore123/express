@@ -4,7 +4,7 @@ const mssql = require('mssql');
 
 const authorRouter = (nav, pageData) => {
     
-    // Renderer object template
+    // Renderer function to return page data object 
     const renderer = (result) =>{ 
         return {
             title: pageData.title,
