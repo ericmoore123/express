@@ -9,7 +9,7 @@ const authorRouter = (nav, pageData) => {
         return {
             title: pageData.title,
             nav,
-            books: result.recordset
+            authors: result.recordset
         };  
     };
 
@@ -17,7 +17,7 @@ const authorRouter = (nav, pageData) => {
     const request = new mssql.Request();
 
     router.get('/', async (req, res) => { 
-        const result = await request.query('select * from books where title=author');
+        const result = await request.query('select * from books where title = author');
         res.render('authors', renderer(result));
     });
 
