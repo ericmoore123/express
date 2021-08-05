@@ -12,9 +12,9 @@ const pageData = require('./public/data/staticData');
 
 // Define site wide "Nav" component objects
 const nav = [
-    {link: '/home', title: 'Home'},
-    {link: '/books', title: "Books"},
-    {link: '/authors', title: "Authors"}
+    {link: '/library', title: 'Home'},
+    {link: '/library/books', title: "Books"},
+    {link: '/library/authors', title: "Authors"}
 ];
 
 // SQL Database dependencies
@@ -63,8 +63,8 @@ app.use(express.json());
 // app.use('/admin', adminRouter(nav));
 
 app.use('/library', homeRouter(nav, pageData));
-app.use('/books', bookRouter(nav, pageData)); //pass navbar to router
-app.use('/authors', authorRouter(nav, pageData)); //pass navbar to router
+app.use('/library/books', bookRouter(nav, pageData)); //pass navbar to router
+app.use('/library/authors', authorRouter(nav, pageData)); //pass navbar to router
 
 // Start server
 app.listen(PORT, () => {

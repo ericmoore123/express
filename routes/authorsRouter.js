@@ -9,15 +9,16 @@ const authorRouter = (nav, pageData) => {
         return {
             title: pageData.title,
             nav,
-            books: result.recordset
+            authors: result.recordset
         };  
     };
 
     // Request file object reference
     const request = new mssql.Request();
 
+    // Author routes
     router.get('/', async (req, res) => { 
-        const result = await request.query('select * from books where title=author');
+        const result = await request.query('select * from books where title = author');
         res.render('authors', renderer(result));
     });
 

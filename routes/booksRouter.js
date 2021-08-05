@@ -17,7 +17,7 @@ const bookRouter = (nav, pageData) => {
     // Request file object reference
     const request = new mssql.Request();
     
-    // Baseline /book route
+    // book routes
     router.get('/', async (req, res) => { 
 
             const result = await request.query('select * from books');
