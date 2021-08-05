@@ -4,7 +4,7 @@ const router = express.Router();
 const homeRouter = (nav, pageData) => {
 
     // Renderer function to return page data object 
-    const renderer = () =>{ 
+    const renderer = () => { 
         return {
             title: pageData.title,
             nav
