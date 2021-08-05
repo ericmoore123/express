@@ -66,6 +66,7 @@ app.use('/library', homeRouter(nav, pageData));
 app.use('/books', bookRouter(nav, pageData)); //pass navbar to router
 app.use('/authors', authorRouter(nav, pageData)); //pass navbar to router
 
+// Start server
 app.listen(PORT, () => {
     console.log(`Running on port:  ${chalk.red(PORT)}`);
 });

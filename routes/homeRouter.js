@@ -3,11 +3,16 @@ const router = express.Router();
 
 const homeRouter = (nav, pageData) => {
 
-    router.get('/', async (req, res) => { 
-        res.render('home', {
-            nav,
+    // Renderer function to return page data object 
+    const renderer = () =>{ 
+        return {
             title: pageData.title,
-        });
+            nav
+        };  
+    };
+
+    router.get('/', async (req, res) => { 
+        res.render('home', renderer());
     });
 
     return router;
