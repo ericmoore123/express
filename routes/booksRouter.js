@@ -3,8 +3,7 @@ const router = express.Router();
 const mssql = require('mssql');
 
 const bookRouter = (nav, pageData) => {
-    // const bookList = require('../src/bookList'); //STATIC CONTENT
-
+    
     // Renderer function to return page data object 
     const renderer = (result) =>{ 
         return {
