@@ -3,7 +3,7 @@ const router = express.Router();
 const mssql = require('mssql');
 
 const authorRouter = (nav, pageData) => {
-    
+
     // Renderer function to return page data object 
     const renderer = (result) =>{ 
         return {
