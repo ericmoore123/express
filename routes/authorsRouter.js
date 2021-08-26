@@ -33,4 +33,5 @@ const authorRouter = (nav, pageData) => {
     return router;
 };
 
+// Export authorRouter file as function module
 module.exports = authorRouter;
