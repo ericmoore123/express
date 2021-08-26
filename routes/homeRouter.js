@@ -18,4 +18,5 @@ const homeRouter = (nav, pageData) => {
     return router;
 };
 
+// Export homeRouter file as function module
 module.exports = homeRouter;
