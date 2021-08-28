@@ -42,12 +42,20 @@
             </div>
         </header>
 
-        <!-- Section-->
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="row justify-content-center space-between">
+        <!-- Sign-in form-->
+        <section class="py-5 container">
+            <div class="row justify-content-center ">
 
-                    <div class="card col-md-4 m-3">
+                    <form class="col-md-4" action="/library/auth/signUp" method="post">
+                        <h3 class="text-center">Sign Up</h3>
+                        <label for="username">Username: </label>
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Username" />                        
+                        <label class="mt-2" for="password">Password</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
+                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    </form>
+
+                    <!-- <div class="card col-md-4 m-3">
                         <div class="card-body text-center">
                           <h5 class="card-title">Browse Books</h5>
                           <a href="/books" class="btn btn-primary mt-3">View now!</a>
@@ -59,11 +67,12 @@
                           <h5 class="card-title">Browse Authors</h5>
                           <a href="/authors" class="btn btn-primary mt-3">View now!</a>
                         </div>
-                    </div>
+                    </div> -->
 
-                </div>
+                
             </div>
         </section>
+
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
