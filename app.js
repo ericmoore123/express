@@ -69,7 +69,7 @@ app.use(express.json());
 app.use('/library', homeRouter(nav, pageData));
 app.use('/library/books', bookRouter(nav, pageData)); //pass navbar to router
 app.use('/library/authors', authorRouter(nav, pageData)); //pass navbar to router
-app.use('/auth', authRouter(nav, pageData)); //pass navbar to router
+app.use('/library/auth', authRouter());
 
 // Start server
 app.listen(PORT, () => {
