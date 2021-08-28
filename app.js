@@ -2,6 +2,7 @@ const express = require('express');
 const chalk = require('chalk'); //Enables us to set colors on error/console messages
 const morgan = require('morgan');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const dotenv = require('dotenv');
 dotenv.config(); //Inititalize dotenv and enable environment variable usage
@@ -37,6 +38,7 @@ mssql.connect(config).catch(err => console.error(err));
 const bookRouter = require('./routes/booksRouter'); //Include Booksrouter.js file
 const authorRouter = require('./routes/authorsRouter'); //Include Authorsrouter.js file
 const homeRouter = require('./routes/homeRouter'); //Include HomeRouter.js file
+const authRouter = require('./routes/authRouter'); //Include HomeRouter.js file
 
 // Initialize Express
 const app = express();
@@ -46,6 +48,8 @@ app.use(express.urlencoded({
 
 app.use(morgan('tiny')); // HTTP request logging middleware for Node 
 
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({extended: false}));
 // Loading Static Assets
 // __dirname returns the path of the folder in which the current js file is stored i.e: `\express\app.js`
 app.use(express.static(path.join(__dirname, "/public/"))); // Tells express this is where we are keeping out static files
@@ -65,6 +69,7 @@ app.use(express.json());
 app.use('/library', homeRouter(nav, pageData));
 app.use('/library/books', bookRouter(nav, pageData)); //pass navbar to router
 app.use('/library/authors', authorRouter(nav, pageData)); //pass navbar to router
+app.use('/auth', authRouter(nav, pageData)); //pass navbar to router
 
 // Start server
 app.listen(PORT, () => {
